@@ -20,12 +20,23 @@ def make_expense(description, amount, category):
     Rules:
     - description: strip surrounding spaces. If it's empty after that,
       raise ValueError.
+    """
+    description = description.strip()
+    if description == '':
+        raise ValueError("description can't be empty")
+    amount = float(amount)
+    if amount <= 0:
+        raise ValueError
+    category = category.strip().lower()
+    if not category:
+        category = "other"
+    """
     - amount: convert to float. If it's <= 0, raise ValueError.
     - category: strip spaces and make it lowercase ("  Food " -> "food").
       If it's empty, use "other".
     """
     # TODO (Part 3)
-    raise NotImplementedError
+    return {"description": description, "amount": amount, "category": category}
 
 
 def total(expenses):
