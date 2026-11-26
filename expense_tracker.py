@@ -41,8 +41,10 @@ def make_expense(description, amount, category):
 
 def total(expenses):
     """Return the sum of all amounts, rounded to 2 decimals. Empty list -> 0."""
-    # TODO (Part 3)
-    raise NotImplementedError
+    if expenses == []:
+        return 0
+    total = sum(x['amount'] for x in expenses)
+    return round(total, 2)
 
 
 def total_by_category(expenses):
